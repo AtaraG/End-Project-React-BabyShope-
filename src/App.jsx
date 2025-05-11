@@ -27,6 +27,8 @@ function App() {
 
   const[cart,setcart]=useState([]);//מערך של עגלת הקניות
   const sumCart=cart.length;// משתנה לכמות מוצרים בעגלה
+
+  const [User,setUser]=useState("user")// משתנה לסוג המשתמש
   //פונקציות
 
 //הוספת מוצר לחנות לפי מה שנכתב באינפוטים
@@ -73,10 +75,14 @@ const search=(txt)=>{
   return (
     <div className="App">
       <header></header>
-
-      <nav><a href="#addp">הוסף מוצר לחנות</a><br />
+      <button onClick={()=>setUser("manager")}>מנהל </button>
+      <button onClick={()=>setUser("user")}>אורח</button>
+      <nav>
+        {User=="manager"  && <a href="#addp">הוסף מוצר לחנות</a>}<br />
       <a href="#cart">לעגלת הקניות שלי</a>
-      <input type="text" placeholder='חפש מוצר...' onChange={(event)=>search(event.target.value)} value={searchValue} /></nav>
+      <input id='search' type="text" placeholder='חפש מוצר...' onChange={(event)=>search(event.target.value)} value={searchValue} /></nav>
+     
+
       <section>
         {// רנדור מערך -הוספת המוצרים מהמערך לתצוגה
           filterProdact.map(p=> <div className='prod1'>
@@ -87,6 +93,7 @@ const search=(txt)=>{
           </div>)
         }
       </section>
+      {User=="manager" &&
         <form >
         <div id='addp'>
           <h4>הוסף מוצר לחנות</h4>
@@ -95,7 +102,7 @@ const search=(txt)=>{
       <button className='button-p' type="button" onClick={()=>{addProduct()}}>הוסף</button>
         
         </div>
-      </form>
+      </form>}
       <br />
 
         <div id='cart'>
@@ -115,6 +122,7 @@ const search=(txt)=>{
 
         <button className='button-p' onClick={()=> {send()}}>בצע הזמנה</button>
         </div>
+
 
   
 
