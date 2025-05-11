@@ -1,0 +1,68 @@
+body{
+  direction: rtl;
+  background-color: #f4f4f3;
+}
+header{
+  background-image: url("../public/image/111.png");
+  background-size: cover;
+  width: 160px;
+  height: 150px;
+  margin-right: 700px;
+  padding-bottom: 15px;
+  
+}
+
+section{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.prod1{
+  border: 2px rgb(228, 36, 151) solid;
+  width: 15%;
+ text-align: center;
+ margin: 5px;
+ height: 450px;
+}
+
+
+
+input{
+  border-radius: 10%;
+  margin: 5px;
+  padding: 15px;
+  border: 1px black solid;
+  background-color: #efc0dc;
+}
+.button-p{
+  padding: 13px;
+  border-radius: 40%;
+  background-color:#f09dcf;
+  margin: 10px;
+  border:  rgb(228, 36, 151);
+}
+p{
+  font-family:Ezra SIL SR;
+  font-size: 40px;
+  color: #f09dcf;
+}
+h4{
+  color: #f09dcf;
+}
+#addp{
+  margin-bottom: 100px;
+}
+
+img{
+  width: 90%;
+  height: 40%;
+  margin: 10px;
+}
+ 
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
