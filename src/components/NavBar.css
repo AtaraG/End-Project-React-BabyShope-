@@ -1,0 +1,52 @@
+
+.header {
+  background-color: #fdf3f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  direction: rtl;
+}
+
+.header-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.icon {
+  width: 35px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  background-color: #f9ece8;
+}
+
+
+.logo {
+  width: 10%;
+}
+
+.nav-bar {
+  background-color: #ffe5dc;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 1.1rem;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-bar a:hover {
+  color: #d67d7d;
+}
+

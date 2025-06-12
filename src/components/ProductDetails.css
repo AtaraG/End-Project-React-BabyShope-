@@ -1,0 +1,132 @@
+.product-details-container {
+  display: flex;
+  flex-direction: row-reverse; /* תומך בכיווניות מימין לשמאל */
+  gap: 40px;
+  padding: 40px;
+  background-color: #fff8f6;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(214, 125, 125, 0.2);
+  margin: 40px auto;
+  max-width: 900px;
+  align-items: center;
+}
+
+.prod-image {
+  width: 50%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 221, 221, 0.6);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: right;
+  flex: 1;
+}
+
+.product-name {
+  font-size: 1.8rem;
+  color: #d67d7d;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 1.4rem;
+  color: #b55f5f;
+  font-weight: bold;
+}
+
+.product-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.product-info button {
+  background-color: #d67d7d;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-info button:hover {
+  background-color: #b55f5f;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-details-container {
+  /* כל שאר העיצוב הקיים... */
+  animation: fadeInUp 0.6s ease-in-out;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.product-info button:hover {
+  animation: pulse 0.4s ease-in-out;
+}
+
+
+/* .product-details-container {
+  max-width: 900px; 
+  margin: 40px auto; 
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  gap: 30px;
+}
+
+.prod-image {
+  width: 400px; 
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-name {
+  margin: 0 0 15px;
+  font-size: 2.2rem; 
+  color: #333;
+}
+
+.product-price {
+  margin: 0 0 20px;
+  font-size: 1.8rem;
+  color: #27ae60;
+}
+
+.product-description {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.5;
+} */

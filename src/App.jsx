@@ -1,130 +1,56 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import HomePage from './components/HomePage';
+import AppRoutes from './routes/AppRoutes';
+import AllProducts from './components/AllProducts';
+import NavBar from './components/NavBar';
 
 function App() {
-  //משתנים
- const [product,setProdact] =useState([
-    {id:1,name:"צעצוע 1",price:50, img:"1.jpg"},
-    {id:2,name:"צעצוע 2",price:100,img:"2.jpg"},
-    {id:3,name:"צעצוע 3",price:20,img:"3.jpg"},
-    {id:4,name:"צעצוע 4",price:150,img:"4.jpg"},
-    {id:5,name:"צעצוע 5",price:250,img:"5.jpg"}, 
-    {id:6,name:"צעצוע 6",price:200,img:"6.jpg"},
-    {id:7,name:"צעצוע 7",price:30,img:"7.jpg"},
-    {id:8,name:"צעצוע 8",price:100,img:"8.jpg"},
-    {id:9,name:"צעצוע 9",price:20,img:"9.jpg"},
-    {id:10,name:"צעצוע 10",price:15,img:"10.png"},
-    {id:11,name:"צעצוע 11",price:220,img:"11.png"}, 
-    {id:12,name:"צעצוע 12",price:300,img:"12.jpg"}
-  ])
+  const [babyProducts, SetbabyProducts] = useState([
+    { id: 1, name: " משטח פעילות דובי ענק -לבן ", price: 420, Image: "p1.webp", description: "משטח פעילות גדול ועבה במיוחד.בעל הרכב בד ייחודי המעניק תחושת רכות מלטפת כמשי", count: 0 },
+    { id: 2, name: "משטח פעילות דובי ענק - ורוד ", price: 420, Image: "p2.webp", description: "משטח פעילות גדול ועבה במיוחד.בעל הרכב בד ייחודי המעניק תחושת רכות מלטפת כמשי", count: 0 },
+    { id: 3, name: "סוס נדנדה - דובי לבן&בז׳", price: 459.9, Image: "p3.webp", description: "נדנדת דובי מעוצבת שתתן תחילה סטייל לחדר של הבייבי שלך ובגיל המתאים תהיה הסוס נדנדה הבלתי נפרד שלו.", count: 0 },
+    { id: 4, name: "שמיכה + פוך למיטת תינוק \ מעבר - בז'", price: 320, Image: "p4.webp", description: "שמיכה רכה מ-100% כותנה אורגנית", count: 0 },
+    { id: 5, name: "שמיכה + פוך למיטת תינוק \ מעבר - בועות בז", price: 320, Image: "p5.webp", description: "שמיכה רכה מ-100% כותנה אורגנית", count: 0 },
+    { id: 6, name: "נחשוש למיטת תינוק ומעבר - POPO לבן & בז ", price: 89.90, Image: "p6.webp", description: "נחשוש צמה ארוך ורחב במיוחד, משמש כמגן מיטה ותחימת אזור השינה.", count: 0 },
+    { id: 7, name: "נחשוש - אפור", price: 89.00, Image: "p7.webp", description: "נחשוש צמה ארוך ורחב במיוחד, משמש כמגן מיטה ותחימת אזור השינה.", count: 0 },
+    { id: 8, name: "סלסלה לתמרוקים - דובי", price: 220, Image: "p8.webp", description: "סלסלת דובי לאחסון נוח של תמרוקים ואביזרים ", count: 0 },
+    { id: 9, name: "סלסלה לתמרוקים - ורוד", price: 59.90, Image: "p9.webp", description: "חבילת טיטולים סופגים במיוחד", count: 0 },
+    { id: 10, name: "סט מצעים לעריסה פרימיום - לבן", price: 350, Image: "p10.jpg", description: "סט מצעים מושלם לעריסה הכולל 3 חלקים :שמיכה, סדין ומגן ראש .", count: 0 },
+    { id: 11, name: "סט מצעים לעריסה פרימיום - כחול", price: 350, Image: "p11.webp", description: " סט מצעים מושלם לעריסה הכולל 3 חלקים :שמיכה, סדין ומגן ראש .", count: 0 },
+    { id: 12, name: "סט מצעים לעריסה פרימיום - בז'", price: 350, Image: "p12.webp", description: " סט מצעים מושלם לעריסה הכולל 3 חלקים :שמיכה, סדין ומגן ראש .", count: 0 },
+    { id: 13, name: "אוהל טיפי - כחול", price: 329, Image: "p13.webp", description: "אוהל טיפי מיוחד שקטנים וגם גדולים אוהבים ממש .", count: 0 },
+    { id: 14, name: "אוהל טיפי - ורוד", price: 329, Image: "p14.webp", description: "אוהל טיפי מיוחד שקטנים וגם גדולים אוהבים ממש .", count: 0 },
+    { id: 15, name: "אוניברסיטה לתינוק דובי - ורוד", price: 499, Image: "p15.webp", description: "אוניברסיטה לתינוק מלאה בגירויים ומשמשת לאורך זמן .", count: 0 },
+    { id: 16, name: "אוניברסיטה לתינוק דובי - כחול ", price: 499, Image: "p16.webp", description: "אוניברסיטה לתינוק מלאה בגירויים ומשמשת לאורך זמן .", count: 0 },
+    { id: 17, name: "אוניברסיטה לתינוק דובי - לבן & בז'", price: 329, Image: "p17.webp", description: "וניברסיטה לתינוק מלאה בגירויים ומשמשת לאורך זמן .", count: 0 },
+    { id: 18, name: "אוניברסיטה לתינוק ברווז - לבן", price: 329, Image: "p18.webp", description: "אוניברסיטה לתינוק מלאה בגירויים ומשמשת לאורך זמן .", count: 0 },
+    { id: 19, name: "ספה נפתחת לילדים - אפור", price: 420, Image: "p19.webp", description: "ספה נפתחת לפעוטות וילדים. מפנקת במיוחד שגם גדולים רוצים.", count: 0 },
+    { id: 20, name: "ספה נפתחת לילדים - ב'ז", price: 420, Image: "p20.webp", description: "ספה נפתחת לפעוטות וילדים. מפנקת במיוחד שגם גדולים רוצים.", count: 0 }
+  ]);
 
-  const [filterProdact,setfilterProdact]=useState(product)// מערך מוצרים משןכפל מה שיוצג בפועל למסך
-  const [searchValue,setSearchValue]=useState("");// יכיל את מילות החיפוש באינפוט
+  const [MyCart, setMyCart] = useState([]);
 
-  const[productval,setproductval]=useState("")//משתנה המקבל שם מוצר להוספה
-  const[priceval,setpriceval]=useState("")    //משתנה המקבל מחיר מוצר להוספה
-
-  const[cart,setcart]=useState([]);//מערך של עגלת הקניות
-  const sumCart=cart.length;// משתנה לכמות מוצרים בעגלה
-
-  const [User,setUser]=useState("user")// משתנה לסוג המשתמש
-  //פונקציות
-
-//הוספת מוצר לחנות לפי מה שנכתב באינפוטים
-  const addProduct=()=>{
-    const newProduct={
-      id:product[product.length-1].id+1,
-      name:productval,
-      price:priceval
-    }
-    //עריכת מערך המוצרים- משכפלת כל מה שקיים בו ומוסיפה מוצר חדש
-    product.push(newProduct)
-     setfilterProdact([...product])
-    console.log(newProduct);
-    
+//הוספת מוצר לעגלת קניות
+  const addProductToCart = (p) => {
+    setMyCart(prevCart => [...prevCart, p])
   }
-
-//פונקציה שמוסיפה את הפריט למערך העגלה
-const addcart=(p)=>{
-  setcart([...cart,p])
+//מחיקת מוצר מעגלת קניות
+const DeletProduct=(id)=>{
+ const index= MyCart.findIndex(p=>p.id===id);
+ MyCart.splice(index,1)
+ setMyCart([...MyCart])
 }
-// פונקציה שמוחקת מוצר מהעגלה
-const deleteP=(id)=>{
-  const index=cart.findIndex(p=>p.id==id)
-  const newcart=[...cart];
-  newcart.splice(index,1);
-  setcart(newcart);
+const ResetCart=()=>{
+  setMyCart([])
 }
-//שליחת ההזמנה
-const send=()=>{
-  alert("הזמנתך התקבלה ❤️")
-}
-//פונקצית חיפוש
-const search=(txt)=>{
-  setSearchValue(txt)
-  const filterArr=product.filter(p=>p.name.includes(txt)||
-  p.price.toString().includes(txt))
-
-  setfilterProdact(filterArr)
-}
-
-  
-
-
   return (
     <div className="App">
-      <header></header>
-      <button onClick={()=>setUser("manager")}>מנהל </button>
-      <button onClick={()=>setUser("user")}>אורח</button>
-      <nav>
-        {User=="manager"  && <a href="#addp">הוסף מוצר לחנות</a>}<br />
-      <a href="#cart">לעגלת הקניות שלי</a>
-      <input id='search' type="text" placeholder='חפש מוצר...' onChange={(event)=>search(event.target.value)} value={searchValue} /></nav>
-     
+      <NavBar />
 
-      <section>
-        {// רנדור מערך -הוספת המוצרים מהמערך לתצוגה
-          filterProdact.map(p=> <div className='prod1'>
-            <img src={"./image/"+p.img} alt="" />
-            <p>{p.name}</p>
-            <h3>{p.price} ש"ח</h3>
-            <button className='button-p' onClick={()=>{addcart(p)}}>+</button>
-          </div>)
-        }
-      </section>
-      {User=="manager" &&
-        <form >
-        <div id='addp'>
-          <h4>הוסף מוצר לחנות</h4>
-      <input type="text" placeholder='הכנס שם מוצר' onChange={(event)=>{setproductval(event.target.value)}} value={productval}/>
-      <input type="text" placeholder='הכנס מחיר מוצר'onChange={(event)=>{setpriceval(parseInt(event.target.value))}} value={priceval}/>
-      <button className='button-p' type="button" onClick={()=>{addProduct()}}>הוסף</button>
-        
-        </div>
-      </form>}
-      <br />
-
-        <div id='cart'>
-        <h3 >עגלת הקניות</h3>
-        <ul>
-          {// רנדור מערך -הוספת המוצרים מהמערך לעגלה
-            cart.length==0?
-            <p>העגלה שלך ריקה...</p>:
-
-          cart.map(p=> <li>
-            <h5>{p.name} : {p.price} ש"ח <button onClick={()=>{deleteP(p.id)}}>הסר</button></h5>
-            
-          </li>)
-        }
-        </ul>
-        <h4>סה"כ מוצרים בעגלה {sumCart}</h4>
-
-        <button className='button-p' onClick={()=> {send()}}>בצע הזמנה</button>
-        </div>
-
-
-  
+      <AppRoutes list={babyProducts} cart={addProductToCart} mycart={MyCart} deletP={DeletProduct} 
+      reset={ResetCart}/>
 
     </div>
   );
