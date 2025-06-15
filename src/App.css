@@ -48,6 +48,18 @@ body {
   background-color: #ffa0a0;
 }
 
+.welcome-message {
+  background-color: #ffe4e4;
+  color: #333;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 2px solid #ffb6b6;
+  text-align: center;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
 
 /* אודות */
 .about-container {
@@ -131,3 +143,110 @@ body {
   90% { opacity: 1; transform: translateY(0) translateX(50%); }
   100% { opacity: 0; transform: translateY(-10px) translateX(50%); }
 }
+
+/* טופס הרשמה */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  direction: rtl;
+}
+
+.auth-box {
+  
+  width: 360px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.auth-form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.auth-form button {
+  background-color: #d67d7d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #b55f5f;
+}
+
+.toggle-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.toggle-link span {
+  color: #d67d7d;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.auth-message {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.auth-message.success {
+  background-color: #d7f3e3;
+  color: #207c51;
+  border: 1px solid #b2e0cb;
+}
+
+.auth-message.error {
+  background-color: #fbe4e4;
+  color: #a94442;
+  border: 1px solid #f1c0c0;
+}
+
+.logout-button {
+  position: fixed;
+  top: 200px;
+  left: 20px;
+  background-color: #999999;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 999;
+}
+
+.logout-button:hover {
+  background-color: #777777;
+}
+

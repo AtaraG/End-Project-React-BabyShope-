@@ -5,6 +5,8 @@ import HomePage from './components/HomePage';
 import AppRoutes from './routes/AppRoutes';
 import AllProducts from './components/AllProducts';
 import NavBar from './components/NavBar';
+import { MyProvider } from './context';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   const [babyProducts, SetbabyProducts] = useState([
@@ -31,27 +33,49 @@ function App() {
   ]);
 
   const [MyCart, setMyCart] = useState([]);
+  //מערך משתמשים
+  const [UserList, setUserList] = useState([]);
+  const [currentU, setcurrentU] = useState('')
+  const Store = {
+    UserList,
+    AddUser: (user) => {
+      setUserList([...UserList, user])
+    },
 
-//הוספת מוצר לעגלת קניות
+    UserName: (name) => {
+      setcurrentU(name)
+
+    },
+    currentUserName:currentU
+  }
+
+  //הוספת מוצר לעגלת קניות
   const addProductToCart = (p) => {
     setMyCart(prevCart => [...prevCart, p])
   }
-//מחיקת מוצר מעגלת קניות
-const DeletProduct=(id)=>{
- const index= MyCart.findIndex(p=>p.id===id);
- MyCart.splice(index,1)
- setMyCart([...MyCart])
-}
-const ResetCart=()=>{
-  setMyCart([])
-}
+  //מחיקת מוצר מעגלת קניות
+  const DeletProduct = (id) => {
+    const index = MyCart.findIndex(p => p.id === id);
+    MyCart.splice(index, 1)
+    setMyCart([...MyCart])
+  }
+  const ResetCart = () => {
+    setMyCart([])
+  }
   return (
     <div className="App">
-      <NavBar />
 
-      <AppRoutes list={babyProducts} cart={addProductToCart} mycart={MyCart} deletP={DeletProduct} 
-      reset={ResetCart}/>
+      <MyProvider value={Store}>
+        <BrowserRouter>
 
+          <NavBar />
+
+          <AppRoutes list={babyProducts} cart={addProductToCart} mycart={MyCart} deletP={DeletProduct}
+            reset={ResetCart} />
+
+        </BrowserRouter>
+
+      </MyProvider>
     </div>
   );
 }
