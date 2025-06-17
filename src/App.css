@@ -249,4 +249,28 @@ body {
 .logout-button:hover {
   background-color: #777777;
 }
+.admin-login-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.admin-login-button {
+  background-color: #6c7ae0;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-login-button:hover {
+  background-color: #505bb5;
+}
+.admin-login-button .icon {
+  margin-left: 8px;
+  font-size: 1.1rem;
+}
 

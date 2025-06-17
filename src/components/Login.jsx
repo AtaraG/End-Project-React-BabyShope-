@@ -24,16 +24,31 @@ const Login = () => {
 
   //הוספת משתמש למערכת
   const MyUser = () => {
-    AddU(CurrentUser);
-    currentUserFunc(CurrentUser.name);
-    setCurrentUser({ name: '', email: '', pass: '' })
-    setTimeout(() => {
+    const ExistingUser = AllUsers.find(u => u.email == CurrentUser.email)
+    if (!ExistingUser) {
+      AddU(CurrentUser);
+      currentUserFunc(CurrentUser.name);
+      setCurrentUser({ name: '', email: '', pass: '' })
+      setMessage('נרשמת בהצלחה!');
+      setMessageType('success');
+      setTimeout(() => {
         navigate("/")
+      }, 1000);
+    }
+    else {
+      setMessage(' אימייל זה קיים במערכת ');
+      setMessageType('error');
+      setTimeout(() => {
+        setCurrentUser({ name: '', email: '', pass: '' })
+        setMessage('');
+        setMessageType('');
       }, 2000);
+
+    }
   };
-//התחברות למערכת
+  //התחברות למערכת
   const CheckUser = (email, pass) => {
-  const foundUser = AllUsers.find(u => u.email === email);
+    const foundUser = AllUsers.find(u => u.email === email);
 
     if (!foundUser) {
       setMessage('האימייל לא קיים');
@@ -57,27 +72,31 @@ const Login = () => {
     setTimeout(() => {
       setMessage('');
       setMessageType('');
-    }, 3000);
+    }, 1000);
   };
-//התנתקות מהחשבון
-  const Disconnected =()=>{
+  //התנתקות מהחשבון
+  const Disconnected = () => {
     currentUserFunc(null);
     setTimeout(() => {
-       navigate("/")
+      navigate("/")
     }, 1000);
-   
+
   }
 
   return (
-    
+
     <div className="auth-container">
-      {  currentUser2 &&(   
+      {currentUser2 && (
         <button className="logout-button" onClick={Disconnected}>
           התנתקות
         </button>
-        )}
+      )}
       <div className="auth-box">
-        
+        {message && (
+          <div className={`auth-message ${messageType}`}>
+            {message}
+          </div>
+        )}
         <h2>{isLogin ? 'התחברות' : 'הרשמה'}</h2>
         <div className="auth-form">
           {!isLogin && (
@@ -114,12 +133,13 @@ const Login = () => {
             {isLogin ? 'הרשמה' : 'התחברות'}
           </span>
         </p>
-        
-        {message && (
-          <div className={`auth-message ${messageType}`}>
-            {message}
-          </div>
-        )}
+        <div className="admin-login-wrapper">
+          <button className="admin-login-button" onClick={() => navigate("/Manager")}>
+            התחברות מנהל <span className="icon">🔑</span>
+          </button>
+        </div>
+
+
       </div>
 
     </div>

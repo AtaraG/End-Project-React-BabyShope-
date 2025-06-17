@@ -21,7 +21,6 @@ const HomePage = () => {
             <button className="hero-button">🧸 אני רוצה לראות</button>
           </Link>
         </div>
-        <h1>{userN}</h1>
       </section>
     </div>
   );

@@ -1,0 +1,57 @@
+.admin-page {
+  direction: rtl;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fffaf6;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.admin-actions button {
+  background-color: #d67d7d;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.admin-actions button:hover {
+  background-color: #b55f5f;
+}
+
+.admin-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.admin-form button {
+  background-color: #6c7ae0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.notification {
+  background-color: #8c97e8;
+  color: white;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}

@@ -46,7 +46,7 @@ function App() {
       setcurrentU(name)
 
     },
-    currentUserName:currentU
+    currentUserName: currentU,
   }
 
   //הוספת מוצר לעגלת קניות
@@ -62,6 +62,36 @@ function App() {
   const ResetCart = () => {
     setMyCart([])
   }
+  //הוספת מוצר ע"י מנהל
+  const AddProducts = (obj) => {
+    SetbabyProducts([...babyProducts, obj])
+  }
+  //מחיקת מוצר
+  const DeleteProducts = (id) => {
+    const index = babyProducts.findIndex(p => p.id === Number(id));
+    if(index!=-1){
+      babyProducts.splice(index, 1)
+    SetbabyProducts([...babyProducts])
+    return true;
+    }
+    else{
+      return false;
+    }
+    
+  }
+  // עדכון מחיר 
+  const UpdateNewPrice = (id, Newprice) => {
+
+    const index2 = babyProducts.findIndex(p => p.id === Number(id));
+    if (index2 != -1) {
+      babyProducts[index2].price = Newprice
+      return true
+    }
+    else {
+      return false
+    }
+  }
+
   return (
     <div className="App">
 
@@ -71,7 +101,8 @@ function App() {
           <NavBar />
 
           <AppRoutes list={babyProducts} cart={addProductToCart} mycart={MyCart} deletP={DeletProduct}
-            reset={ResetCart} />
+            reset={ResetCart} AddProdFunc={AddProducts} DeletProdFunc={DeleteProducts}
+            UpdatePriceFunc={UpdateNewPrice} />
 
         </BrowserRouter>
 

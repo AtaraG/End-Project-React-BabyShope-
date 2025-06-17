@@ -8,8 +8,9 @@ import ProductDetails from '../components/ProductDetails'
 import NavBar from '../components/NavBar'
 import Cart from '../components/Cart'
 import Login from '../components/Login'
+import Manager from '../components/Manager'
 
-const AppRoutes = ({list,cart,mycart,deletP,reset}) => {
+const AppRoutes = ({list,cart,mycart,deletP,reset,AddProdFunc, DeletProdFunc,UpdatePriceFunc}) => {
 
   return (
   
@@ -22,6 +23,9 @@ const AppRoutes = ({list,cart,mycart,deletP,reset}) => {
         <Route path='/ProductDetails/:id' element={<ProductDetails list={list} addP={cart}/>}/>
         <Route path='/Cart' element={<Cart mycart={mycart} deletP={deletP} resetC={reset}/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/manager' element={<Manager list={list} AddProdFunc={AddProdFunc}
+               DeletProdFunc={DeletProdFunc} UpdatePriceFunc={UpdatePriceFunc}/>}/>
+
 
 
       </Routes>
